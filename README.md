@@ -1,18 +1,19 @@
 # 🎀 小马宝莉 SWF 播放器 🎀
 
-一个可爱风格的SWF文件播放器，专为喜欢小马宝莉的用户设计。
+一个专为小马宝莉粉丝设计的可爱风格SWF文件播放器，粉色主题，彩虹元素，少女心满满！
 
 ## ✨ 功能特性
 
-- 🎨 **可爱的小马宝莉风格界面**：粉色主题，彩虹元素，少女心满满
-- 📁 **简单易用的文件选择**：一键选择本地SWF文件
-- 🎬 **多种播放方式**：
-  - 优先使用系统默认程序打开
-  - 自动降级到浏览器+Ruffle模拟器
-- 📋 **详细的状态反馈**：实时显示程序运行状态
-- 📝 **完整的日志记录**：记录播放过程中的详细信息
-- 🖼️ **美观的图标设计**：带有小马宝莉风格的图标
-- 💻 **跨平台支持**：可在Windows、macOS和Linux上运行
+- 🎨 **可爱的小马宝莉风格界面**：粉色渐变背景，彩虹装饰，星星点缀
+- 📁 **简单易用的文件选择**：一键浏览并选择本地SWF文件
+- 🎬 **智能播放方式**：
+  - 优先使用系统默认程序流畅播放
+  - 自动降级到浏览器+Ruffle模拟器兼容模式
+- 📋 **实时状态反馈**：清晰显示程序运行状态
+- 📝 **完整日志记录**：详细记录播放过程，方便调试
+- 🖼️ **精美小马宝莉图标**：彩虹鬃毛小马头像图标
+- 💻 **跨平台支持**：兼容Windows、macOS和Linux
+- 🎉 **无广告纯净体验**：专注于SWF播放，无任何广告
 
 ## 📦 安装方法
 
@@ -48,50 +49,54 @@
 
 ## 🚀 使用方法
 
-1. 启动程序，你将看到可爱的小马宝莉风格界面
-2. 点击 "🎀 选择 SWF 文件 🎀" 按钮，浏览并选择你想要播放的SWF文件
-3. 点击 "✨ 播放 SWF 文件 ✨" 按钮，程序将自动选择合适的方式播放
-4. 查看状态和日志信息，了解播放进度
-5. 播放完成后，点击 "💤 退出播放器 💤" 按钮关闭程序
+1. 启动程序，看到可爱的小马宝莉风格界面
+2. 点击 "🎀 选择 SWF 文件 🎀" 按钮
+3. 浏览并选择你想要播放的SWF文件
+4. 点击 "✨ 播放 SWF 文件 ✨" 按钮
+5. 查看状态和日志信息，了解播放进度
+6. 播放完成后，点击 "💤 退出播放器 💤" 按钮关闭程序
 
-## 🛠️ 技术栈
+## 🎨 界面预览
+
+- **主色调**：少女粉 (#FF69B4)
+- **辅助色**：浅粉色 (#FFE4E1)、中粉色 (#FFB6C1)、紫色 (#DDA0DD)
+- **字体**：Comic Sans MS（可爱风格）
+- **装饰元素**：彩虹、星星、小马元素
+- **布局**：简洁直观，操作流畅
+
+## 🛠️ 技术实现
 
 - **编程语言**：Python 3.11.9
-- **GUI框架**：Tkinter（Python内置）
-- **打包工具**：PyInstaller
-- **Flash模拟器**：Ruffle（通过CDN加载）
-- **图标设计**：Pillow（用于生成ICO图标）
+- **GUI框架**：Tkinter（Python内置，无需额外安装）
+- **打包工具**：PyInstaller 6.18.0
+- **Flash支持**：Ruffle 开源Flash模拟器（通过CDN加载）
+- **图标设计**：Pillow 生成的小马宝莉风格ICO图标
 
 ## 📁 项目结构
 
 ```
 yourusername-pony-swf-player/
 ├── swf_player_gui.py      # 主程序文件
-├── pony_icon.ico          # 小马宝莉风格ICO图标
+├── pony_icon.ico          # 小马宝莉风格图标
+├── create_icon.py         # 图标生成脚本
 ├── README.md              # 项目说明文档
 ├── requirements.txt       # 项目依赖
 └── .gitignore            # Git忽略文件列表
 ```
 
-## 🎨 界面设计
-
-- **主色调**：少女粉（#FF69B4）
-- **辅助色**：浅粉色、紫色
-- **字体**：Comic Sans MS（可爱风格）
-- **图标**：小马宝莉风格，包含彩虹和星星元素
-- **布局**：清晰直观，操作简便
-
 ## 📝 开发说明
 
 ### 环境要求
 
-- Python 3.6 及以上
-- Windows/macOS/Linux
+- Python 3.6 及以上版本
+- 现代操作系统（Windows/macOS/Linux）
+- 网络连接（用于加载Ruffle模拟器）
 
-### 依赖安装
+### 依赖列表
 
-```bash
-pip install -r requirements.txt
+```
+pillow>=12.0.0      # 用于生成图标（可选）
+pyinstaller>=6.0.0   # 用于打包EXE文件（可选）
 ```
 
 ### 运行程序
@@ -100,55 +105,60 @@ pip install -r requirements.txt
 python swf_player_gui.py
 ```
 
-### 打包程序
+### 打包选项
 
 ```bash
-# 目录模式（推荐，较小的EXE文件）
+# 目录模式（推荐，EXE文件较小，约1.7MB）
 pyinstaller --onedir --windowed --icon=pony_icon.ico swf_player_gui.py
 
-# 单文件模式（较大的EXE文件）
+# 单文件模式（包含所有依赖，约10MB）
 pyinstaller --onefile --windowed --icon=pony_icon.ico swf_player_gui.py
 ```
 
 ## 🤝 贡献指南
 
-欢迎大家贡献代码！如果你有任何改进建议或功能需求，欢迎：
+欢迎小马宝莉粉丝和开发者贡献代码！
 
 1. Fork 本仓库
-2. 创建你的特性分支：`git checkout -b feature/AmazingFeature`
-3. 提交你的更改：`git commit -m 'Add some AmazingFeature'`
-4. 推送到分支：`git push origin feature/AmazingFeature`
-5. 开启一个 Pull Request
+2. 创建特性分支：`git checkout -b feature/CuteFeature`
+3. 提交更改：`git commit -m 'Add some cute feature'`
+4. 推送到分支：`git push origin feature/CuteFeature`
+5. 开启 Pull Request
 
 ## 📄 许可证
 
-本项目采用 MIT 许可证 - 查看 LICENSE 文件了解详情
+本项目采用 MIT 许可证，自由使用，自由修改，自由分享！
 
 ## 🙏 致谢
 
-- 感谢 [Ruffle](https://ruffle.rs/) 提供的Flash模拟器
-- 感谢小马宝莉带来的灵感
-- 感谢所有为这个项目做出贡献的人
+- 感谢 [Ruffle](https://ruffle.rs/) 提供的开源Flash模拟器
+- 感谢小马宝莉动画带来的灵感和快乐
+- 感谢所有喜欢这个项目的粉丝们
 
 ## ❓ 常见问题
 
-### Q: 为什么我的SWF文件无法播放？
+### Q: 为什么SWF文件无法播放？
 A: 可能的原因：
-1. 系统没有安装Flash播放器
+1. 系统缺少Flash播放器
 2. 浏览器不支持WebAssembly
-3. SWF文件损坏
-4. 尝试重新启动程序或更换浏览器
+3. SWF文件本身损坏
+4. 网络连接问题（加载Ruffle需要网络）
 
-### Q: 为什么程序启动后没有图标？
-A: 可能是因为图标文件路径不正确。请确保 `pony_icon.ico` 文件与可执行文件在同一目录下。
+### Q: 如何解决播放卡顿？
+A: 尝试：
+1. 关闭其他占用资源的程序
+2. 确保网络连接稳定
+3. 更新浏览器到最新版本
 
-### Q: 如何减小EXE文件的大小？
-A: 我们推荐使用目录模式打包（`--onedir`），这样生成的EXE文件会更小。
+### Q: 程序启动后没有图标怎么办？
+A: 确保 `pony_icon.ico` 文件与 `swf_player_gui.exe` 在同一目录下
 
-## 📞 联系方式
+## 🌟 特别说明
 
-如果你有任何问题或建议，欢迎通过GitHub Issues与我联系。
+这个播放器是为了方便小马宝莉粉丝播放SWF格式的小马宝莉动画而创建的，希望能给大家带来快乐！
 
 ---
 
 🎀 享受你的小马宝莉SWF播放之旅！🎀
+
+Created with ❤️ for My Little Pony fans!
