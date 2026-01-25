@@ -1,0 +1,36 @@
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# Python文件
+*.pyc
+__pycache__/
+
+# PyInstaller文件
+build/
+dist/
+*.spec
+
+# IDE文件
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 日志文件
+*.log
+logs/
+
+# 测试文件
+pytest_cache/
+
+# 环境文件
+.env
+.env.local
+.env.*.local
+
+# 其他临时文件
+*.tmp
+*.temp
+*.bak
