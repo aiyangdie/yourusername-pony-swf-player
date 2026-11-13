@@ -1,140 +1,57 @@
-<p align="center"><img src="assets/covers/46-pony-swf-player.jpg" alt="yourusername-pony-swf-player 项目封面" width="100%"></p>
+<p align="center"><img src="assets/covers/46-pony-swf-player.jpg" alt="小马播放器 项目封面" width="100%"></p>
 
-<div align="center">
+<h1 align="center">小马宝莉 SWF 播放器</h1>
 
-# 🎀 小马宝莉 SWF 播放器
+<p align="center">粉色主题的桌面 SWF 播放器，双模式兼容，专治「Flash 打不开」</p>
 
-**可爱风格 SWF 文件播放器 — 粉色主题，彩虹元素，少女心满满**
+## 简介
 
-[![GitHub](https://img.shields.io/badge/GitHub-Project-blue?logo=github)](https://github.com/aiyangdie/yourusername-pony-swf-player)
-[![Python](https://img.shields.io/badge/Python-3.6+-3776AB?logo=python)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+给小马宝莉同好做的本地播放器：选一个 SWF 文件，能直接用系统关联程序打开就用系统程序；打不开就自动生成一个内嵌 Ruffle 模拟器的 HTML，在浏览器里播。界面走粉色渐变 + Comic Sans，配一个程序化画出来的彩虹鬃毛图标。
 
-</div>
+## 功能
 
----
+- **双模式播放**：系统默认程序优先，失败自动降级到浏览器 + Ruffle
+- **一键选文件**：本地浏览 SWF，路径自动记录
+- **状态反馈**：当前在做什么、结果如何，界面上实时显示
+- **日志记录**：播放过程写日志，出问题好排查
+- **程序化图标**：Pillow 生成多尺寸 ICO，不依赖外部素材
+- **可打包**：PyInstaller 打成免安装 exe
 
-## 📌 项目简介
+## 技术栈
 
-小马宝莉 SWF 播放器是一款专为小马宝莉粉丝设计的桌面端 SWF 文件播放工具。采用 Python Tkinter 构建可爱粉色主题界面，支持双模式播放——优先使用系统默认程序打开，自动降级到浏览器 + Ruffle Flash 模拟器兼容模式。附带彩虹鬃毛小马图标，少女心满满。
+Python 3.6+ · Tkinter ｜ Ruffle（CDN 加载，WebAssembly）｜ Pillow（图标）｜ PyInstaller（打包）
 
----
-
-## ✨ 核心特性
-
-- 🎨 **小马宝莉风格界面** — 粉色渐变配色、Comic Sans MS 字体、Emoji 装饰
-- 📁 **一键文件选择** — 浏览并选择本地 SWF 文件
-- 🎬 **智能双模式播放**
-  - 模式一：系统默认程序直接播放（Windows 优先）
-  - 模式二：自动生成 HTML + Ruffle 模拟器在浏览器中播放（兼容降级）
-- 📋 **实时状态反馈** — 清晰显示当前操作状态
-- 📝 **完整日志记录** — 详细记录播放过程，方便排查问题
-- 🖼️ **精美小马图标** — Pillow 程序化生成的彩虹鬃毛小马 ICO 图标
-- 💻 **跨平台支持** — 兼容 Windows、macOS、Linux
-- 📦 **可打包为 EXE** — 支持 PyInstaller 打包为独立可执行文件
-
----
-
-## 🛠️ 技术栈
-
-| 技术 | 用途 |
-|------|------|
-| Python 3.6+ | 主开发语言 |
-| Tkinter | GUI 框架（Python 内置） |
-| Ruffle | 开源 Flash 模拟器（CDN 加载） |
-| Pillow | ICO 图标程序化生成 |
-| PyInstaller | 打包为独立 EXE 可执行文件 |
-| subprocess | 系统默认程序调用 |
-| webbrowser | 浏览器启动控制 |
-| tempfile | 临时 HTML 文件生成 |
-
----
-
-## 🚀 快速开始
-
-### 前置条件
-
-- Python 3.6 及以上版本
-- 现代浏览器（支持 WebAssembly，用于 Ruffle 模式）
-- 网络连接（Ruffle 模式需要加载 CDN 资源）
-
-### 安装步骤
+## 快速开始
 
 ```bash
 git clone https://github.com/aiyangdie/yourusername-pony-swf-player.git
 cd yourusername-pony-swf-player
 pip install -r requirements.txt
-```
-
-### 运行命令
-
-```bash
 python swf_player_gui.py
 ```
 
-### 打包为 EXE（可选）
+打包为 exe：
 
 ```bash
-# 目录模式（推荐，体积小约 1.7MB）
-pyinstaller --onedir --windowed --icon=pony_icon.ico swf_player_gui.py
-
-# 单文件模式（包含所有依赖，约 10MB）
-pyinstaller --onefile --windowed --icon=pony_icon.ico swf_player_gui.py
+pyinstaller --onedir --windowed --icon=pony_icon.ico swf_player_gui.py   # 目录模式，约 1.7 MB
+pyinstaller --onefile --windowed --icon=pony_icon.ico swf_player_gui.py  # 单文件，约 10 MB
 ```
 
-### 生成图标（可选）
+重新生成图标：`python create_icon.py`。
 
-```bash
-python create_icon.py
-```
-
----
-
-## 📂 项目结构
+## 项目结构
 
 ```
-yourusername-pony-swf-player/
-├── swf_player_gui.py      # 主程序（Tkinter GUI + 播放逻辑）
-├── create_icon.py          # 图标生成脚本（Pillow 绘制小马图标）
-├── pony_icon.ico           # 小马宝莉风格图标
-├── requirements.txt        # 项目依赖
-├── .gitignore              # Git 忽略配置
-└── README.md               # 项目说明文档
+swf_player_gui.py   主程序（GUI + 播放逻辑）
+create_icon.py      图标生成
+pony_icon.ico       程序图标
+requirements.txt
 ```
 
----
+## 说明
 
-## 🎨 界面配色
+Ruffle 模式需要联网加载 CDN 资源；系统程序模式依赖本机已关联 SWF 的播放器。
 
-| 颜色 | 色值 | 用途 |
-|------|------|------|
-| 浅粉色 | `#FFE4E1` | 主背景 |
-| 中粉色 | `#FFB6C1` | 按钮背景 |
-| 深粉色 | `#FF69B4` | 标题栏 / 强调色 |
-| 浅紫色 | `#E6E6FA` | 辅助背景 |
-| 中紫色 | `#DDA0DD` | 退出按钮 |
-| 深紫色 | `#8B008B` | 文字颜色 |
+## 许可证
 
----
-
-## 🤝 贡献与许可证
-
-欢迎小马宝莉粉丝和开发者贡献代码！
-
-1. Fork 本仓库
-2. 创建特性分支：`git checkout -b feature/CuteFeature`
-3. 提交更改：`git commit -m 'Add some cute feature'`
-4. 推送到分支：`git push origin feature/CuteFeature`
-5. 开启 Pull Request
-
-本项目采用 **MIT License** 开源协议，详情请见 [LICENSE](LICENSE) 文件。
-
----
-
-<div align="center">
-
-🎀 享受你的小马宝莉 SWF 播放之旅！🎀
-
-Created with ❤️ for My Little Pony fans!
-
-</div>
+仓库未附 LICENSE 文件，作者原有声明为 MIT，分发或商用前请确认。
