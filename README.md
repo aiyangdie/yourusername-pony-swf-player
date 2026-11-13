@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/covers/46-pony-swf-player.jpg" alt="yourusername-pony-swf-player 项目封面" width="100%"></p>
+
 <div align="center">
 
 # 🎀 小马宝莉 SWF 播放器
